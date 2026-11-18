@@ -1,8 +1,8 @@
 # Bot con: nuke
 
-Viec: xoa kenh/role va ban hang loat, cap quyen nguy hiem trai phep, kiem tra thu bac role.
+Việc: xóa kênh/role và ban hàng loạt, cấp quyền nguy hiểm trái phép, kiểm tra thứ bậc role.
 
-## So huu
+## Sở hữu
 
 - `src/protection/antiNuke.js`
 - `src/protection/hierarchy.js`
@@ -10,25 +10,25 @@ Viec: xoa kenh/role va ban hang loat, cap quyen nguy hiem trai phep, kiem tra th
 - `src/events/nukeEvents.js`
 - `src/events/escalationEvents.js`
 
-## Cam dung
+## Cấm đụng
 
-`exempt.js` (spam giu), `raid.js`, `botApproval.js`, command, panel, file bot chinh giu.
-Can them quyen vao `REQUIRED`: duoc, vi file nay la cua ban. Sua ca dong mo ta tieng Viet.
-Can them event audit moi: duoc them vao mang trong `nukeEvents.js`, dung tu `client.on`.
+`exempt.js` (spam giữ), `raid.js`, `botApproval.js`, command, panel, file bot chính giữ.
+Cần thêm quyền vào `REQUIRED`: được, vì file này là của bạn. Sửa cả dòng mô tả tiếng Việt.
+Cần thêm event audit mới: được thêm vào mảng trong `nukeEvents.js`, đừng tự `client.on`.
 
-## Phai giu
+## Phải giữ
 
-- `DANGEROUS` la dung bo bay quyen dang co. Them quyen moi phai noi ro trong bao cao, vi escalation va health doi theo.
-- `permissions.has(perm, false)` de Administrator khong bi dem thanh moi quyen.
-- Anti-nuke: bo qua chinh bot, chu server, trusted user, trusted bot. Admin thuong khong mien.
-- Khong co executor trong audit (5 entry, khop target, < 5s): return, khong doan.
-- Chi hanh dong khi dem **bang** `nuke.maxActions`, khong lap khi vuot.
-- `act`: `roles.set` giu role managed, @everyone, va role >= role cao nhat cua bot.
-- Escalation: khong executor thi chi canh bao, khong hoan tac mu. Role khong `editable` thi ghi that bai.
-- `oldMember.partial`: bo qua MemberUpdate.
-- Doi position role: `scheduleHealthCheck`, khong check ngay lap tuc.
-- `analyze()` giu thuan, khong import discord.js. `ok` chi false khi co `error`.
+- `DANGEROUS` là đúng bộ bảy quyền đang có. Thêm quyền mới phải nói rõ trong báo cáo, vì escalation và health đổi theo.
+- `permissions.has(perm, false)` để Administrator không bị đếm thành mọi quyền.
+- Anti-nuke: bỏ qua chính bot, chủ server, trusted user, trusted bot. Admin thường không miễn.
+- Không có executor trong audit (5 entry, khớp target, < 5s): return, không đoán.
+- Chỉ hành động khi đếm **bằng** `nuke.maxActions`, không lặp khi vượt.
+- `act`: `roles.set` giữ role managed, @everyone, và role >= role cao nhất của bot.
+- Escalation: không executor thì chỉ cảnh báo, không hoàn tác mù. Role không `editable` thì ghi thất bại.
+- `oldMember.partial`: bỏ qua MemberUpdate.
+- Đổi position role: `scheduleHealthCheck`, không check ngay lập tức.
+- `analyze()` giữ thuần, không import discord.js. `ok` chỉ false khi có `error`.
 
 ## Xong khi
 
-Nguong nuke va ham `analyze` van test duoc khong can token. Ba lop mien khong bi gop vao `isExempt`.
+Ngưỡng nuke và hàm `analyze` vẫn test được không cần token. Ba lớp miễn không bị gộp vào `isExempt`.

@@ -1,33 +1,33 @@
 # Bot con: joins
 
-Viec: nguoi vao server, phat hien raid, lockdown, tai khoan qua moi, bot gia luc vua vao.
+Việc: người vào server, phát hiện raid, lockdown, tài khoản quá mới, bot giả lúc vừa vào.
 
-## So huu
+## Sở hữu
 
 - `src/protection/raid.js`
 - `src/protection/antiBot.js`
 - `src/events/guildMemberAdd.js`
 
-## Cam dung
+## Cấm đụng
 
-`botApproval.js`, `antiNuke.js`, `messageCreate.js`, moi file trong `src/commands/`, `src/panel/`, va file bot chinh giu (`index.js`, `config.js`, `ready.js`, `interactionCreate.js`, `utils/`).
+`botApproval.js`, `antiNuke.js`, `messageCreate.js`, mọi file trong `src/commands/`, `src/panel/`, và file bot chính giữ (`index.js`, `config.js`, `ready.js`, `interactionCreate.js`, `utils/`).
 
-Can them key vao `DEFAULTS`, doi tick sweep, hoac doi nut verify: dung, ghi yeu cau cho bot chinh.
+Cần thêm key vào `DEFAULTS`, đổi tick sweep, hoặc đổi nút verify: dừng, ghi yêu cầu cho bot chính.
 
-## Phai giu
+## Phải giữ
 
-- `recordJoin` chi dem trong `raid.windowMs`. Raid khi du `maxJoins`.
-- `startRaid` lan sau trong cung dot chi keo `until` va them id, khong khoa lan nua. Tra `false`.
-- Lockdown di qua `exclusive()`. Khong tu gan `cfg.lockdown`.
-- Khong khoa `logChannelId`. Snapshot: true / false / null. Mo khoa dung nghia do.
-- Timeout ca nhom chi khi `mode === 'act'` va `moderatable`.
-- Nguoi vao luc raid dang active: `markRaider` + quarantine, khong goi lai lockdown.
-- Tai khoan moi: so `minAccountAgeMs`, chi phat khi `act`.
-- Bot: `checkBotAdder` (sleep 1.5s, audit BotAdd < 30s). Khong thay nguoi them thi `unknown`, khong kick mu.
-- Trusted va khong lookalike: bo qua. Lookalike khong bao gio tu ban chi vi ten.
-- `botApproval.enabled` va chua trust: goi `requestApproval`, khong tu viet lai luong duyet.
-- Tat duyet: chi kick o `act` khi biet nguoi them va nguoi do khong tin cay.
+- `recordJoin` chỉ đếm trong `raid.windowMs`. Raid khi đủ `maxJoins`.
+- `startRaid` lần sau trong cùng đợt chỉ kéo `until` và thêm id, không khóa lần nữa. Trả `false`.
+- Lockdown đi qua `exclusive()`. Không tự gán `cfg.lockdown`.
+- Không khóa `logChannelId`. Snapshot: true / false / null. Mở khóa đúng nghĩa đó.
+- Timeout cả nhóm chỉ khi `mode === 'act'` và `moderatable`.
+- Người vào lúc raid đang active: `markRaider` + quarantine, không gọi lại lockdown.
+- Tài khoản mới: so `minAccountAgeMs`, chỉ phạt khi `act`.
+- Bot: `checkBotAdder` (sleep 1.5s, audit BotAdd < 30s). Không thấy người thêm thì `unknown`, không kick mù.
+- Trusted và không lookalike: bỏ qua. Lookalike không bao giờ tự ban chỉ vì tên.
+- `botApproval.enabled` và chưa trust: gọi `requestApproval`, không tự viết lại luồng duyệt.
+- Tắt duyệt: chỉ kick ở `act` khi biết người thêm và người đó không tin cậy.
 
 ## Xong khi
 
-Hanh vi join/raid doi dung muc tieu, file ngoai danh sach khong doi, va ban ghi ro test thuat nguoi can them (nguong join, impersonation, unknown adder).
+Hành vi join/raid đổi đúng mục tiêu, file ngoài danh sách không đổi, và bạn ghi rõ test thuần nào cần thêm (ngưỡng join, impersonation, unknown adder).

@@ -1,28 +1,28 @@
 # Bot con: spam
 
-Viec: tin nhan rac, noi dung lap, link moi, mention hang loat, xoa tin raider ngay khi ho chat, ai duoc mien spam.
+Việc: tin nhắn rác, nội dung lặp, link mời, mention hàng loạt, xóa tin raider ngay khi họ chat, ai được miễn spam.
 
-## So huu
+## Sở hữu
 
 - `src/protection/antiSpam.js`
 - `src/protection/exempt.js`
 - `src/events/messageCreate.js`
 
-## Cam dung
+## Cấm đụng
 
-`raid.js` (dung `trackMessage` / `isRaider` san co, khong sua), `antiNuke.js`, `escalationEvents.js`, command, panel, file bot chinh giu.
-Can ham moi trong `raid.js` hoac `utils/`: dung va bao bot chinh.
+`raid.js` (dùng `trackMessage` / `isRaider` sẵn có, không sửa), `antiNuke.js`, `escalationEvents.js`, command, panel, file bot chính giữ.
+Cần hàm mới trong `raid.js` hoặc `utils/`: dừng và báo bot chính.
 
-## Phai giu
+## Phải giữ
 
-- Bo qua bot va `isExempt`.
-- `isExempt` chi dung cho spam: owner, trusted user, Administrator, `exemptRoleIds`. Dung mang ham nay sang nuke hoac escalation.
-- Chi `trackMessage` member vao duoi 24 gio.
-- Ly do cong don: dang la raider, `checkSpam`, `INVITE_RE`, >= 5 user mention.
-- `act`: xoa tin, timeout `spam.timeoutMs` neu `moderatable`. `log`: khong xoa, khong timeout.
-- Log toi da 1 lan / 30s / user.
-- Khong bat Message Content Intent trong code. Thieu noi dung thi nhanh spam chu van chay, invite/dup co the yeu. Ghi ro gioi han do neu sua.
+- Bỏ qua bot và `isExempt`.
+- `isExempt` chỉ dùng cho spam: owner, trusted user, Administrator, `exemptRoleIds`. Đừng mang hàm này sang nuke hoặc escalation.
+- Chỉ `trackMessage` member vào dưới 24 giờ.
+- Lý do cộng dồn: đang là raider, `checkSpam`, `INVITE_RE`, >= 5 user mention.
+- `act`: xóa tin, timeout `spam.timeoutMs` nếu `moderatable`. `log`: không xóa, không timeout.
+- Log tối đa 1 lần / 30s / user.
+- Không bật Message Content Intent trong code. Thiếu nội dung thì nhánh spam chữ vẫn chạy, invite/trùng có thể yếu. Ghi rõ giới hạn đó nếu sửa.
 
 ## Xong khi
 
-`checkSpam` va `INVITE_RE` van test thuan. `messageCreate` khong phat o mode log.
+`checkSpam` và `INVITE_RE` vẫn test thuần. `messageCreate` không phạt ở mode log.

@@ -1,30 +1,30 @@
 # Bot con: surface
 
-Viec: slash command, bang dieu khien, nut verify da dang san, chuoi deploy lenh.
+Việc: slash command, bảng điều khiển, nút verify đã đăng sẵn, chuỗi deploy lệnh.
 
-## So huu
+## Sở hữu
 
 - `src/commands/*.js`
 - `src/panel/controlPanel.js`
 - `src/panel/presets.js`
 - `src/deploy-commands.js`
 
-## Cam dung
+## Cấm đụng
 
-`src/events/interactionCreate.js` la cua bot chinh. Nut hoac menu **moi** (prefix moi) thi dung, mo ta customId, de bot chinh gan mot nhanh.
-Sua nut `verify`, `botapp:`, `panel:` san co thi duoc doi payload trong file ban so huu, nhung khong doi prefix.
-Cam: `raid.js`, `botApproval.js`, `antiNuke.js`, `config.js`.
+`src/events/interactionCreate.js` là của bot chính. Nút hoặc menu **mới** (prefix mới) thì dừng, mô tả customId, để bot chính gắn một nhánh.
+Sửa nút `verify`, `botapp:`, `panel:` sẵn có thì được đổi payload trong file bạn sở hữu, nhưng không đổi prefix.
+Cấm: `raid.js`, `botApproval.js`, `antiNuke.js`, `config.js`.
 
-## Phai giu
+## Phải giữ
 
-- Lenh moi: `{ data, execute, cooldownSeconds }` tieng Viet, ephemeral, quyen Discord dung viec (xem `references/commands.md`).
-- Lenh pha kenh hoac khoa server: ManageGuild tro len, khong tat cooldown.
-- Doi builder thi noi ro "can `npm run deploy` mot lan". Khong goi deploy tu `index.js`.
-- Preset chi o `presets.js`: low 12/10s, mid 8/10s, high 5/10s, max 3/8s. `presetOf` tra null neu lech. Dung ep config lech ve preset.
-- Panel kiem tra lai quyen luc bam, khong tin luc gui.
-- `/security` la cho cau hinh bao ve. Dung tao slash moi cho tung co nho.
-- Khong in webhook day du. Dung `maskWebhook`.
+- Lệnh mới: `{ data, execute, cooldownSeconds }` tiếng Việt, ephemeral, quyền Discord đúng việc (xem `references/commands.md`).
+- Lệnh phá kênh hoặc khóa server: ManageGuild trở lên, không tắt cooldown.
+- Đổi builder thì nói rõ "cần `npm run deploy` một lần". Không gọi deploy từ `index.js`.
+- Preset chỉ ở `presets.js`: low 12/10s, mid 8/10s, high 5/10s, max 3/8s. `presetOf` trả null nếu lệch. Đừng ép config lệch về preset.
+- Panel kiểm tra lại quyền lúc bấm, không tin lúc gửi.
+- `/security` là chỗ cấu hình bảo vệ. Đừng tạo slash mới cho từng cờ nhỏ.
+- Không in webhook đầy đủ. Dùng `maskWebhook`.
 
 ## Xong khi
 
-Command moi nam trong `src/commands/` de loader tu thay, preset van test thuan, va ban ke nhung gi bot chinh phai gan trong `interactionCreate.js`.
+Command mới nằm trong `src/commands/` để loader tự thấy, preset vẫn test thuần, và bạn kê những gì bot chính phải gắn trong `interactionCreate.js`.

@@ -1,27 +1,27 @@
 # Bot con: qa
 
-Chay **sau** cac bot khac, khi code da gop. Khong song song voi bot dang sua cung file test.
+Chạy **sau** các bot khác, khi code đã gộp. Không song song với bot đang sửa cùng file test.
 
-## So huu
+## Sở hữu
 
 - `tests/**/*.js`
 - `scripts/check.js`
 
-Duoc doc moi file. Khong sua file ngoai hai cho tren. Test do phai sua production thi bao bot chinh, dung "sua tam" module bao ve.
+Được đọc mọi file. Không sửa file ngoài hai chỗ trên. Test đỏ phải sửa production thì báo bot chính, đừng "sửa tạm" module bảo vệ.
 
-## Viec
+## Việc
 
-1. Doc `references/invariants.md` va bao cao cua cac bot vua chay.
-2. Them test thuan cho hanh vi moi: nguong, parse customId, `analyze`, preset, mask webhook, exempt. Khong login Discord, khong doc token.
-3. Chay `npm run check` va `npm test`. Fail thi sua test hoac tra loi dung file production nao sai luat.
-4. Doi chieu luat, khong chi nhin test xanh:
-   - mode mac dinh van `log`
-   - ba lop mien khong bi gop
-   - lockdown van qua `exclusive()`
-   - confirm moi trust bot
-   - anti-nuke chi hanh dong dung luc bang nguong
-   - khong co `.env`, token, webhook that, `data/config.json` trong diff
+1. Đọc `references/invariants.md` và báo cáo của các bot vừa chạy.
+2. Thêm test thuần cho hành vi mới: ngưỡng, parse customId, `analyze`, preset, mask webhook, exempt. Không login Discord, không đọc token.
+3. Chạy `npm run check` và `npm test`. Fail thì sửa test hoặc trả lời đúng file production nào sai luật.
+4. Đối chiếu luật, không chỉ nhìn test xanh:
+   - mode mặc định vẫn `log`
+   - ba lớp miễn không bị gộp
+   - lockdown vẫn qua `exclusive()`
+   - confirm mới trust bot
+   - anti-nuke chỉ hành động đúng lúc bằng ngưỡng
+   - không có `.env`, token, webhook thật, `data/config.json` trong diff
 
 ## Xong khi
 
-Hai lenh pass, va ban ngan: da test gi, luat nao khong kiem duoc bang test thuan (can server that).
+Hai lệnh pass, và bạn ngắn: đã test gì, luật nào không kiểm được bằng test thuần (cần server thật).
