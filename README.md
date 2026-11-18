@@ -1,39 +1,48 @@
 # skill-cat-anti-fake-bot
 
-Skill cho AI (Claude, Cursor, Codex, Grok, và agent đọc `SKILL.md`) khi làm việc với bot Discord **Cat Anti Fake Bot**.
+Skill cho AI (Claude, Cursor, Codex, Grok, va agent doc `SKILL.md`) khi lam viec voi bot Discord **Cat Anti Fake Bot**.
 
-Bot nguồn: [Catbellso1237/cat-anti-fake-bot](https://github.com/Catbellso1237/cat-anti-fake-bot)  
+Bot nguon: [Catbellso1237/cat-anti-fake-bot](https://github.com/Catbellso1237/cat-anti-fake-bot)  
 Snapshot skill: `1949df84c82633538f6d4db74b545edab4956ce6`
 
-Skill không chứa token, không chứa source bot. Nó chỉ nói cách đọc, cách sửa cho khỏi phá lockdown / duyệt bot / phân quyền, và những việc AI không được tự làm (bật `act`, commit `.env`, cấp Administrator).
+Skill khong chua token, khong chua source bot. No noi cach doc, cach sua cho khoi pha lockdown / duyet bot / phan quyen, va nhung viec AI khong duoc tu lam (bat `act`, commit `.env`, cap Administrator).
 
-## Cài cho AI khác
+Lan sau, viec lon duoc chia cho bot con trong `workers/`. Chung la brief cho AI, khong phai token Discord thu hai.
 
-Copy cả repo thành một thư mục skill (bên trong phải có `SKILL.md`):
+## Cai cho AI khac
+
+Copy ca repo thanh mot thu muc skill (ben trong phai co `SKILL.md`):
 
 ```bash
 git clone https://github.com/Catbellso1237/skill-cat-anti-fake-bot.git cat-anti-fake-bot
 ```
 
-| Agent | Đặt thư mục vào |
+| Agent | Dat thu muc vao |
 |---|---|
-| Claude Code | `~/.claude/skills/cat-anti-fake-bot/` hoặc `.claude/skills/cat-anti-fake-bot/` trong repo bot |
-| Cursor | `~/.cursor/skills/cat-anti-fake-bot/` hoặc `.cursor/skills/cat-anti-fake-bot/` |
-| Codex / agent tương thích Agent Skills | `~/.agents/skills/cat-anti-fake-bot/` hoặc `.agents/skills/cat-anti-fake-bot/` |
-| Grok / agent đọc repo | mở repo này, hoặc để `AGENTS.md` + `SKILL.md` trong context khi sửa bot |
+| Claude Code | `~/.claude/skills/cat-anti-fake-bot/` hoac `.claude/skills/cat-anti-fake-bot/` trong repo bot |
+| Cursor | `~/.cursor/skills/cat-anti-fake-bot/` hoac `.cursor/skills/cat-anti-fake-bot/` |
+| Codex / agent tuong thich Agent Skills | `~/.agents/skills/cat-anti-fake-bot/` hoac `.agents/skills/cat-anti-fake-bot/` |
+| Grok / agent doc repo | mo repo nay, hoac de `AGENTS.md` + `SKILL.md` trong context khi sua bot |
 
-Tên skill là `cat-anti-fake-bot`. Mô tả ở frontmatter của `SKILL.md` là câu agent dùng để quyết định có nạp skill hay không.
+Ten skill la `cat-anti-fake-bot`. Mo ta o frontmatter cua `SKILL.md` la cau agent dung de quyet dinh co nap skill hay khong.
 
-## Bên trong
+## Ben trong
 
-| File | Nội dung |
+| File | Noi dung |
 |---|---|
-| `SKILL.md` | Cửa vào. Đọc trước khi sửa bot. |
-| `references/architecture.md` | File map và luồng raid, bot, nuke, spam. |
-| `references/commands.md` | Slash, panel, env, quyền mời. |
-| `references/invariants.md` | Luật cấm phá. |
-| `references/extending.md` | Thêm command, event, test. |
+| `SKILL.md` | Bot chinh. Doc truoc khi sua bot. |
+| `workers/DISPATCH.md` | Khi nao giao viec, mau prompt, thu tu gop. |
+| `workers/joins.md` | Raid, lockdown, nguoi vao, bot gia. |
+| `workers/approval.md` | Duyet bot moi. |
+| `workers/nuke.md` | Anti-nuke, leo thang, health. |
+| `workers/spam.md` | Spam va mien spam. |
+| `workers/surface.md` | Slash, panel, deploy. |
+| `workers/qa.md` | Test, chay sau cung. |
+| `references/architecture.md` | File map va luong. |
+| `references/commands.md` | Slash, panel, env, quyen moi. |
+| `references/invariants.md` | Luat cam pha. |
+| `references/extending.md` | Them command, event, test. |
 
-## Giấy phép
+## Giay phep
 
-[MIT](LICENSE). Bot nguồn cũng khai MIT trong `package.json`.
+[MIT](LICENSE). Bot nguon cung khai MIT trong `package.json`.
